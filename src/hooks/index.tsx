@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-export const UseLocalStorage = <T>(key: string, defaultValue: T): [T, (value: T) => void] => {
+export const UseLocalStorage = (key: string, defaultValue: boolean) => {
   const [value, setValue] = useState(() => {
     const storedValue = localStorage.getItem(key)
     if (storedValue) return JSON.parse(storedValue)

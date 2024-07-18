@@ -1,18 +1,12 @@
-import { useEffect } from 'react'
-import { UseLocalStorage } from './hooks'
+import { SwitchComponent } from './components'
 
 export const App = () => {
-  const [isToggled, setToggle] = UseLocalStorage<boolean>('@theme-toggle', true)
-
-  useEffect(() => {
-    isToggled
-      ? document.documentElement.classList.add('dark')
-      : document.documentElement.classList.remove('dark')
-  }, [isToggled])
-
   return (
-    <button onClick={() => setToggle(!isToggled)} className={'w-full min-h-screen font-medium uppercase tracking-[1rem] dark:text-[#f8f8f2] dark:bg-[#282A36]'}>
-      {isToggled ? 'Dark Theme' : 'Light Theme'}
-    </button>
+    <div className={'w-full min-h-screen grid overflow-x-hidden text-[#f8f8f2] bg-gradient-to-r from-sky-500 to-cyan-500 dark:from-blue-500 dark:to-indigo-500'}>
+      <div className={'w-full h-full flex flex-col items-center justify-center gap-4 px-6 py-8'}>
+        <h1 className={'font-medium text-center uppercase tracking-widest'}>Theme LocalStorage</h1>
+        <SwitchComponent />
+      </div>
+    </div>
   )
 }
