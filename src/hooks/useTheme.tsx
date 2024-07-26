@@ -1,14 +1,14 @@
 import { useEffect } from 'react'
 import { UseStorage } from './useStorage'
 
-export const UseToggle = () => {
-  const [isToggled, setToggle] = UseStorage('tw-theme', false)
+export const UseTheme = () => {
+  const [isThemed, setTheme] = UseStorage('tw-theme', false)
 
   useEffect(() => {
-    isToggled
+    isThemed
       ? document.documentElement.classList.add('dark')
       : document.documentElement.classList.remove('dark')
-  }, [isToggled])
+  }, [isThemed])
 
-  return [isToggled, setToggle]
+  return [isThemed, setTheme]
 }

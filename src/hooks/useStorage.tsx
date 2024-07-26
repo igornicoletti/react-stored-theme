@@ -9,7 +9,7 @@ export const UseStorage = (key: string, value: boolean) => {
 
   useEffect(() => {
     localStorage.setItem(key, JSON.stringify(isStored))
-  }, [isStored, key])
+  }, [key, isStored])
 
   return [isStored, setStorage]
 }
